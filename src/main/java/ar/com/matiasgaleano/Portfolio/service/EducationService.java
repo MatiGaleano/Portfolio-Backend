@@ -11,7 +11,7 @@ public class EducationService implements IEducationService {
 
   @Autowired
   public EducationRepository educRepo;
-  
+
   @Override
   public List<Education> getEducationList() {
     return educRepo.findAll();
@@ -36,5 +36,5 @@ public class EducationService implements IEducationService {
   public void deleteEducation(Long id) {
     educRepo.deleteById(id);
   }
-  
+
 }

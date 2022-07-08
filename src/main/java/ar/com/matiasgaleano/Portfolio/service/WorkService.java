@@ -11,7 +11,7 @@ public class WorkService implements IWorkService {
 
   @Autowired
   public WorkRepository workRepo;
-  
+
   @Override
   public List<Work> getWorkList() {
     return workRepo.findAll();
@@ -36,5 +36,5 @@ public class WorkService implements IWorkService {
   public void deleteWork(Long id) {
     workRepo.deleteById(id);
   }
-  
+
 }

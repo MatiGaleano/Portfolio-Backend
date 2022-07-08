@@ -21,11 +21,12 @@ public class Education {
   private Date endDate;
   private Boolean actual;
   private String description;
+  private String image;
 
   public Education() {
   }
 
-  public Education(Long id, String institution, String title, Date startDate, Date endDate, Boolean actual, String description) {
+  public Education(Long id, String institution, String title, Date startDate, Date endDate, Boolean actual, String description, String image) {
     this.id = id;
     this.institution = institution;
     this.title = title;
@@ -33,6 +34,7 @@ public class Education {
     this.endDate = endDate;
     this.actual = actual;
     this.description = description;
+    this.image = image;
   }
       
 }

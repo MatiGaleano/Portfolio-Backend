@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProjectService implements IProjectService {
-  
+
   @Autowired
   public ProjectRepository projRepo;
 
@@ -36,5 +36,5 @@ public class ProjectService implements IProjectService {
   public void deleteProject(Long id) {
     projRepo.deleteById(id);
   }
-  
+
 }

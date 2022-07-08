@@ -18,6 +18,7 @@ public class Project {
   private String name;
   private String description;
   private Date date;
+  private String image;
   private String frontUrl;  
   private String backUrl;
   private String demoUrl;
@@ -25,16 +26,15 @@ public class Project {
   public Project() {
   }
 
-  public Project(Long id, String name, String description, Date date, String frontUrl, String backUrl, String demoUrl) {
+  public Project(Long id, String name, String description, Date date, String image, String frontUrl, String backUrl, String demoUrl) {
     this.id = id;
     this.name = name;
     this.description = description;
     this.date = date;
+    this.image = image;
     this.frontUrl = frontUrl;
     this.backUrl = backUrl;
     this.demoUrl = demoUrl;
   }
-
-  
   
 }
