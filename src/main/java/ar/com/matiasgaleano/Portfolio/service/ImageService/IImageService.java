@@ -1,4 +1,4 @@
-package ar.com.matiasgaleano.Portfolio.service;
+package ar.com.matiasgaleano.Portfolio.service.ImageService;
 
 import java.io.File;
 import org.springframework.core.io.Resource;

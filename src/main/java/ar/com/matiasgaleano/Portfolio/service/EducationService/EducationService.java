@@ -1,4 +1,4 @@
-package ar.com.matiasgaleano.Portfolio.service;
+package ar.com.matiasgaleano.Portfolio.service.EducationService;
 
 import ar.com.matiasgaleano.Portfolio.model.Education;
 import ar.com.matiasgaleano.Portfolio.repository.EducationRepository;
