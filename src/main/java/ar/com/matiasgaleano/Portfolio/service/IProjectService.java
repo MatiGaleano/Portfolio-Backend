@@ -1,4 +1,4 @@
-package ar.com.matiasgaleano.Portfolio.service.ProjectService;
+package ar.com.matiasgaleano.Portfolio.service;
 
 import ar.com.matiasgaleano.Portfolio.model.Project;
 import java.util.List;

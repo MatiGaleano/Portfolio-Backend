@@ -1,7 +1,9 @@
-package ar.com.matiasgaleano.Portfolio.service.EducationService;
+package ar.com.matiasgaleano.Portfolio.service;
 
 import ar.com.matiasgaleano.Portfolio.model.Education;
 import java.util.List;
+
+
 
 public interface IEducationService {
 

@@ -30,5 +30,6 @@ public class ProfileController {
   @PutMapping("/profile")
   public void editProfile(Profile prof){
     profServ.editProfile(prof);
-  }
+  } 
+  
 }

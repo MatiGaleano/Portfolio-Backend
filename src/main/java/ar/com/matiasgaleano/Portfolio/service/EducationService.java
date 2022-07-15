@@ -1,10 +1,12 @@
-package ar.com.matiasgaleano.Portfolio.service.EducationService;
+package ar.com.matiasgaleano.Portfolio.service;
 
 import ar.com.matiasgaleano.Portfolio.model.Education;
 import ar.com.matiasgaleano.Portfolio.repository.EducationRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 
 @Service
 public class EducationService implements IEducationService {
