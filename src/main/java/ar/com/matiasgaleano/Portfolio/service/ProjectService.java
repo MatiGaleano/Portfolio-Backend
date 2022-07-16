@@ -1,5 +1,6 @@
 package ar.com.matiasgaleano.Portfolio.service;
 
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IProjectService;
 import ar.com.matiasgaleano.Portfolio.model.Project;
 import ar.com.matiasgaleano.Portfolio.repository.ProjectRepository;
 import java.util.List;

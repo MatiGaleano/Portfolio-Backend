@@ -1,9 +1,11 @@
 package ar.com.matiasgaleano.Portfolio.controller;
 
 import ar.com.matiasgaleano.Portfolio.model.Profile;
-import ar.com.matiasgaleano.Portfolio.service.IProfileService;
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IProfileService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,18 +20,21 @@ public class ProfileController {
   private IProfileService profServ;
   
   @GetMapping("/profile")
-  public List<Profile> getProfile(){
-    return profServ.getProfile();
+  public ResponseEntity<List<Profile>> getProfile(){
+    return new ResponseEntity(profServ.getProfile(), HttpStatus.OK);
   }
   
   @PostMapping("/profile")
-  public void postProfile(Profile prof){
+  public ResponseEntity<?> postProfile(Profile prof){
     profServ.postProfile(prof);
+    return new ResponseEntity(new Message("Perfil Creado"), HttpStatus.OK);
   }
   
   @PutMapping("/profile")
-  public void editProfile(Profile prof){
+  public ResponseEntity<?> editProfile(Profile prof){
     profServ.editProfile(prof);
+    return new ResponseEntity(new Message("Perfil Editado"), HttpStatus.OK);
   } 
   
 }
+

@@ -1,5 +1,6 @@
 package ar.com.matiasgaleano.Portfolio.service;
 
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IImageService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

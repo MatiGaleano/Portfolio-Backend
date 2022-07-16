@@ -1,5 +1,6 @@
 package ar.com.matiasgaleano.Portfolio.service;
 
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IEducationService;
 import ar.com.matiasgaleano.Portfolio.model.Education;
 import ar.com.matiasgaleano.Portfolio.repository.EducationRepository;
 import java.util.List;

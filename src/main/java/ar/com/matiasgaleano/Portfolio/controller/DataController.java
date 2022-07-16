@@ -3,12 +3,13 @@ package ar.com.matiasgaleano.Portfolio.controller;
 import ar.com.matiasgaleano.Portfolio.model.Education;
 import ar.com.matiasgaleano.Portfolio.model.Project;
 import ar.com.matiasgaleano.Portfolio.model.Work;
-import ar.com.matiasgaleano.Portfolio.service.IEducationService;
-import ar.com.matiasgaleano.Portfolio.service.IImageService;
-import ar.com.matiasgaleano.Portfolio.service.IProjectService;
-import ar.com.matiasgaleano.Portfolio.service.IWorkService;
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IEducationService;
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IImageService;
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IProjectService;
+import ar.com.matiasgaleano.Portfolio.service.interfaces.IWorkService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,84 +40,94 @@ public class DataController {
   
 
   @GetMapping("/work")
-  public List<Work> getWorkList() {
-    return workServ.getWorkList();
+  public ResponseEntity<List<Work>> getWorkList() {
+    return new ResponseEntity(workServ.getWorkList(), HttpStatus.OK);
   }
 
   @GetMapping("/work/{id}")
-  public Work getWork(@PathVariable Long id) {
-    return workServ.getWork(id);
+  public ResponseEntity<Work> getWork(@PathVariable Long id) {
+    return new ResponseEntity(workServ.getWork(id), HttpStatus.OK);
   }
 
   @PostMapping("/work")
-  public void addWork(@RequestBody Work data) {
+  public ResponseEntity<?> addWork(@RequestBody Work data) {
     workServ.addWork(data);
+    return new ResponseEntity(new Message("Trabajo Agregado"), HttpStatus.OK);
 
   }
 
   @PutMapping("/work")
-  public void editWork(@RequestBody Work data) {
+  public ResponseEntity<?> editWork(@RequestBody Work data) {
     workServ.editWork(data);
+     return new ResponseEntity(new Message("Trabajo actualizado"), HttpStatus.OK);
   }
 
   @DeleteMapping("work/{id}")
-  public void deleteWork(@PathVariable Long id) {
+  public ResponseEntity<?> deleteWork(@PathVariable Long id) {
     workServ.deleteWork(id);
+    return new ResponseEntity(new Message("Trabajo borrado"), HttpStatus.OK);
   }
   
   @GetMapping("/education")
-  public List<Education> getEducationList() {
-    return educServ.getEducationList();
+  public ResponseEntity<List<Education>> getEducationList() {
+    return new ResponseEntity(educServ.getEducationList(), HttpStatus.OK);
   }
 
   @GetMapping("/education/{id}")
-  public Education getEducation(@PathVariable Long id) {
-    return educServ.getEducation(id);
+  public ResponseEntity<Education> getEducation(@PathVariable Long id) {
+    return new ResponseEntity(educServ.getEducation(id), HttpStatus.OK);
   }
 
   @PostMapping("/education")
-  public void addEducation(@RequestBody Education data) {
+  public ResponseEntity<?> addEducation(@RequestBody Education data) {
     educServ.addEducation(data);
+    return new ResponseEntity(new Message("Educacion Agregada"), HttpStatus.OK);
   }
 
   @PutMapping("/education")
-  public void editEducation(@RequestBody Education data) {
+  public ResponseEntity<?> editEducation(@RequestBody Education data) {
     educServ.editEducation(data);
+    return new ResponseEntity(new Message("Educacion Editada"), HttpStatus.OK);
   }
 
   @DeleteMapping("/education/{id}")
-  public void deleteEducation(@PathVariable Long id) {
+  public ResponseEntity<?> deleteEducation(@PathVariable Long id) {
     educServ.deleteEducation(id);
+    return new ResponseEntity(new Message("Educacion Borrada"), HttpStatus.OK);
   }
   
   @GetMapping("/project")
-  public List<Project> getProjecs() {
-    return projServ.getProjectList();
+  public ResponseEntity<List<Project>> getProjecs() {
+    return new ResponseEntity(projServ.getProjectList(), HttpStatus.OK);    
   }
 
   @GetMapping("/project/{id}")
-  public Project getProjec(@PathVariable Long id) {
-    return projServ.getProject(id);
+  public ResponseEntity<Project> getProjec(@PathVariable Long id) {
+    return new ResponseEntity(projServ.getProject(id), HttpStatus.OK);
   }
 
   @PostMapping("/project")
-  public void addProject(@RequestBody Project data) {
+  public ResponseEntity<?> addProject(@RequestBody Project data) {
     projServ.addProject(data);
+    return new ResponseEntity(new Message("Proyecto Agregado"), HttpStatus.OK);
   }
 
   @PutMapping("/project")
-  public void editProject(@RequestBody Project data) {
+  public ResponseEntity<?> editProject(@RequestBody Project data) {
     projServ.editProject(data);
+    return new ResponseEntity(new Message("Proyecto Editado"), HttpStatus.OK);
   }
 
   @DeleteMapping("/project/{id}")
-  public void deleteProject(@PathVariable Long id) {
+  public ResponseEntity<?> deleteProject(@PathVariable Long id) {
     projServ.deleteProject(id);
+    return new ResponseEntity(new Message("Proyecto Borrado"), HttpStatus.OK);
   }
   
   @PostMapping("/image")
-  public void addImage(@RequestParam("file") MultipartFile image) {
+  public ResponseEntity<?> addImage(@RequestParam("file") MultipartFile image) {
     imgServ.saveImage(image);
+    return new ResponseEntity(new Message("Imagen Guardada"), HttpStatus.OK);
   }
 
   @GetMapping(path = {"/image/{name}"})
@@ -125,8 +136,9 @@ public class DataController {
   }
 
   @DeleteMapping(path = {"/image/{name}"})
-  public void deleteImage(@PathVariable("name") String name) {
+  public ResponseEntity<?> deleteImage(@PathVariable("name") String name) {
     imgServ.deleteImage(name);
+    return new ResponseEntity(new Message("Imagen Borrada"), HttpStatus.OK);
   }
 
 }
